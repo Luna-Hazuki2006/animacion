@@ -2,10 +2,22 @@ body {
     margin: 0;
 }
 
+:root {
+    --ancho: 300px;
+    --rojo: red;
+    --azul: blue;
+    --verde: green;
+}
+
 .rect {
-    width: 300px;
-    height: 300px;
+    width: var(--ancho);
+    height: var(--ancho);
     place-self: flex-end;
+    animation-name: cambiarColor;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 }
 
 .grid {
@@ -16,23 +28,47 @@ body {
     animation-name: mover;
     animation-duration: 10s;
     animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
 }
 
 @keyframes mover {
     0% {
         grid-template-columns: 25% 1fr;
-        grid-template-rows: 300px 1fr;
+        grid-template-rows: var(--ancho) 1fr;
     }
-    20% {
+    25% {
         grid-template-columns: 20% 1fr;
         grid-template-rows: 100% 1fr;
     }
     50% {
         grid-template-columns: 50% 1fr;
-        grid-template-rows: 300px 1fr;
+        grid-template-rows: var(--ancho) 1fr;
+    }
+    75% {
+        grid-template-columns: var(--ancho) 1fr;
+        grid-template-rows: 70% 1fr;
     }
     100% {
         grid-template-columns: 100% 1fr;
-        grid-template-rows: 70% 1fr;
+        grid-template-rows: 100% 1fr;
+    }
+}
+
+@keyframes cambiarColor {
+    0%, 24% {
+        fill: var(--azul);
+    }
+    25%, 49% {
+        fill: var(--verde);
+    }
+    50%, 74% {
+        fill: var(--rojo);
+    }
+    75%, 99% {
+        fill: var(--verde);
+    }
+    100% {
+        fill: var(--azul);
     }
 }
