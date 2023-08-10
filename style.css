@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+}
+
+.rect {
+    width: 300px;
+    height: 300px;
+    place-self: flex-end;
+}
+
+.grid {
+    display: grid;
+    background-color: gray;
+    height: 100vh;
+    overflow: hidden;
+    animation-name: mover;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes mover {
+    0% {
+        grid-template-columns: 25% 1fr;
+        grid-template-rows: 300px 1fr;
+    }
+    20% {
+        grid-template-columns: 20% 1fr;
+        grid-template-rows: 100% 1fr;
+    }
+    50% {
+        grid-template-columns: 50% 1fr;
+        grid-template-rows: 300px 1fr;
+    }
+    100% {
+        grid-template-columns: 100% 1fr;
+        grid-template-rows: 70% 1fr;
+    }
+}
